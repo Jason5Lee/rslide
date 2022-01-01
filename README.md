@@ -12,14 +12,13 @@ You can download it at the [release](https://github.com/Jason5Lee/rslide/release
 Note that because it will setup keyboard hook, the anti-virus may not like it. If you have the concern, you can build it from source by fetching this repo of a certain version tag and run `cargo build --release`.
 
 You can also install by `cargo install rslide`.
-
 ## Config
 
 The app reads config from environment variable, with [`dotenv`](https://docs.rs/dotenv/0.15.0/dotenv/) supports.
 
 | Variable | Description | Default Value | Required |
 | -|-|-|-|
-| LISTEN | Address the web service listens. The page can be viewed at `/`. | | ✔ | 
+| LISTEN | Address the web service listens. | | ✔ | 
 | TEMPLATE_PAGE | The path of the [template page](#template-page) | | ✔ |
 | PAGE_LIST | The path of the [page list file](#page-list-file) | | ✔ |
 | ASSETS_DIR | The path of the [assets directory](#assets-directory) | | |
@@ -47,3 +46,11 @@ Pages listed in the file support reloading. The change of a page will take effec
 ### Assets Directory
 
 Optionally you can set a assets directory path, which will map to the `/assets` path in the web service.
+
+## Usage
+
+Go to the `/` of the listening address, you can see the first page. Pressing the corresponding keys of `PREV_CODE` and `NEXT_CODE`, you can move back and forth. You can unhook by a DELETE request of `/hook`, in which case the page will be frozen. You should unhook before quiting the program as it releases some OS resources.
+
+## TODO
+
+- [ ] Remove `unwrap` or `expect` as much as possible.

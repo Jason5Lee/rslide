@@ -144,8 +144,8 @@ mod hook {
 
     impl Drop for Hook {
         fn drop(&mut self) {
-            // SAFETY: `Hook` is designed to only construct not more than once,
-            // this unhook will only call more than once.
+            // SAFETY: `Hook` is designed to construct not more than once,
+            // this unhook won't be called more than once.
             // The new method ensure that HOOK won't be writeen after return.
             unsafe {
                 UnhookWindowsHookEx(HOOK);
