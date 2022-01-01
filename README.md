@@ -21,8 +21,8 @@ The app reads config from environment variable, with [`dotenv`](https://docs.rs/
 | -|-|-|-|
 | LISTEN | Address the web service listens. The page can be viewed at `/`. | | ✔ | 
 | TEMPLATE_PAGE | The path of the [template page](#template-page) | | ✔ |
-| PAGE_LIST | The page of the [page list file](#page-list-file) | | ✔ |
-| ASSETS_DIR | The page of the [assets directory](#assets-directory) | | |
+| PAGE_LIST | The path of the [page list file](#page-list-file) | | ✔ |
+| ASSETS_DIR | The path of the [assets directory](#assets-directory) | | |
 | HEARTBEAT | The duration of each heartbeat for keeping WebSocket alive. | 1s | |
 | TIMEOUT | The duration of the timeout for waiting heartbeat response. | 10s | |
 | PREV_CODE | The scancode of the key that switches to the previous page. | 26 (the `[` key) | |
@@ -39,6 +39,8 @@ Template page doesn't support reloading. The change of the template page file wo
 ### Page List File
 
 This file contains a list of the pathes of the `html` files of the pages, absolute or relative to this list file, line by line.
+
+Note that the html file should contain a partial inner html, which will be put in the element `mainHtml` of the template page.
 
 Pages listed in the file support reloading. The change of a page will take effect when refreshing or switch away and switch back to this page.
 
