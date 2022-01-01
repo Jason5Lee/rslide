@@ -5,6 +5,14 @@
 The new page is sent via WebSocket. It's not for an advantage, but I
 just want to try making something with WebSocket.
 
+## Install
+
+You can download it at the [release](https://github.com/Jason5Lee/rslide/releases) page.
+
+Note that because it will setup keyboard hook, the anti-virus may not like it. If you have the concern, you can build it from source by fetching this repo of a certain version tag and run `cargo build --release`.
+
+You can also install by `cargo install rslide`.
+
 ## Config
 
 The app reads config from environment variable, with [`dotenv`](https://docs.rs/dotenv/0.15.0/dotenv/) supports.
@@ -12,9 +20,9 @@ The app reads config from environment variable, with [`dotenv`](https://docs.rs/
 | Variable | Description | Default Value | Required |
 | -|-|-|-|
 | LISTEN | Address the web service listens. The page can be viewed at `/`. | | ✔ | 
-| TEMPLATE_PAGE | The path of the [template page](TODO) | | ✔ |
-| PAGE_LIST | The page of the [page list file](TODO) | | ✔ |
-| ASSETS_DIR | The page of the [assets directory](TODO) | | |
+| TEMPLATE_PAGE | The path of the [template page](#template-page) | | ✔ |
+| PAGE_LIST | The page of the [page list file](#page-list-file) | | ✔ |
+| ASSETS_DIR | The page of the [assets directory](#assets-directory) | | |
 | HEARTBEAT | The duration of each heartbeat for keeping WebSocket alive. | 1s | |
 | TIMEOUT | The duration of the timeout for waiting heartbeat response. | 10s | |
 | PREV_CODE | The scancode of the key that switches to the previous page. | 26 (the `[` key) | |
